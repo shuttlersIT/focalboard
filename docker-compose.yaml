@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  focalboard:
+    image: mattermost/focalboard:latest
+    restart: unless-stopped
+    ports:
+      - '8002:80'
+      - '9082:9082'
+      - '8003:8000'
+    volumes:
+      - focalboard-data:/data
+    environment:
+      - VIRTUAL_HOST=itsupport@shuttlers.ng  # Replace with your domain name (optional)
+
+volumes:
+  focalboard-data:
